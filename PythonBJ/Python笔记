@@ -1,0 +1,265 @@
+求数字的各位数字
+个位：sum//1%10
+十位：sum//10%10
+百位：sum//100%10 
+...... 
+一、函数
+Python 将非空字符串解读为 True
+1.设置函数
+def make_pizza(*toppings): 形参名 *toppings 中的星号让 Python 创建一个名为 toppings 的空元组，并将收到的所有值都封装到这个元组中
+def build_profile(first, last, **user_info):  形参 **user_info 中的两个星号让 Python 创建一个名为 user_info 的空字典，并将收到的所有名称 — 值对都封装到这个字典中。
+给形参指定默认值时，等号两边不要有空格，对于函数调用中的关键字实参，也应遵循这种约定
+
+math函数
+math.sqrt() 返回数值的平方根 math.sqrt(100)
+
+2.函数
+def 创建函数  def user(): 
+str() 将非字符串表示为字符串、
+len(列表名)  获取列表内元素的个数或字符串的长度
+sorted 临时性列表排序 sorted(cars) 逆向排序，添加参数 sorted(cars,reverse=True)
+range() 生成数字  for i in range(1,11):  range(1,11,2)
+min() 取出列表中最小值
+max() 取出列表中最大值
+sum() 求出列表的和
+set() 过滤掉重复元素
+input() 标准输入 message = input("Tell me something, and I will repeat it back to you: ")  print(message)
+raw_input() Python2.7内的获取输入函数
+int() 将输入视为数值 
+open() 打开文件 open('nginx.log')
+
+
+3、方法
+title 首字母大写
+upper 全部大写
+lower 全部小写
+rstrip 删除字符串末尾的空白符
+lstrip 删除字符串开头的空白符
+strip 同时删除两边的空白符
+append 在列表末尾添加字符  list.append("ee")
+insert 在列表中添加新元素  list.insert(0,'zz')
+del   在列表中删除元素（语句） del list[0]
+pop  删除列表中最后的元素 并加入到新的组中   poped_moto = moto.pop()
+remove 删除列表中已知的元素 moto.remove('2')
+sort 列表永久性排序 cars.sort()  逆向排序，添加参数 cars.sort(reverse=True)
+  按照普通字典顺序：
+  >>> spam = ['a', 'z', 'A', 'Z']
+  >>> spam.sort(key=str.lower)
+  >>> spam
+['a', 'A', 'z', 'Z']
+reverse 永久性反转列表顺序 cars.reverse() 
+items()  返回一个键值对列表
+keys() 只返回键
+values() 只返回值
+read()  读取内容 contents = file_object.read()
+readlines() 从文件中读取每一行，并将其存储在一个列表中
+replace() 替换字符  message = "I really like dogs" message.replace('dog','cat')
+write() 写入文件  file_object.write("I love programming.")
+  with open(filename, 'a') as file_object:  a 附加 w 写入 a 只读(默认)
+       file_object.write("aaaa\n")
+split() 一个字符串创建一个单词列表 ,以空格为分隔符
+    title = "Alice in Wonderland"
+    title.split()
+    ['Alice', 'in', 'Wonderland']
+count() 计算出现多少次 line.count('row') line.lower().count('row')不区分大小写
+index() 返回列表内值的第一次出现的下标 lists.index('hi')
+get() 它有两个参数：要取得其值的键，以及如果该键不存在时，返回的备用值
+  >>> picnicItems = {'apples': 5, 'cups': 2}
+  >>> 'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'
+  'I am bringing 2 cups.'
+is字符串
+islower() 如果字符串至少有一个字母，并且所有字母都是小写 'HELLO'.isupper()
+isupper() 如果字符串至少有一个字母，并且所有字母都是大写
+isalpha() 如果字符串只包含字母，并且非空
+isalnum()返回 True，如果字符串只包含字母和数字，并且非空
+isdecimal()返回 True，如果字符串只包含数字字符，并且非空
+isspace()返回 True，如果字符串只包含空格、制表符和换行，并且非空
+istitle()返回True，如果字符串仅包含以大写字母开头、后面都是小写字母的单词
+startswith()返回 True，如果它们所调用的字符串以该方法传入的字符串开始。否则，方法返回 False 'Hello world!'.startswith('Hello')
+endswith()返回 True，如果它们所调用的字符串以该方法传入的字符串结束。否则，方法返回 False   'Hello world!'.endswith('world!')
+rfind() 返回字符串最后一次出现的位置(从右向左查询)，如果没有匹配项则返回-1。 'filename.txt'.rfind('.')
+
+
+=================模块=====================
+
+堆排序  模块:heapq
+print(heapq.nlargest(3, list1)) 列表内最大的前三个
+print(heapq.nsmallest(3, list1))  列表内最小的前三个
+
+
+
+"""
+迭代工具模块
+"""
+import itertools
+
+# 产生ABCD的全排列
+itertools.permutations('ABCD')
+# 产生ABCDE的五选三组合
+itertools.combinations('ABCDE', 3)
+# 产生ABCD和123的笛卡尔积
+itertools.product('ABCD', '123')
+# 产生ABC的无限循环序列
+itertools.cycle(('A', 'B', 'C'))
+
+
+
+collections模块
+
+常用的工具类：
+
+namedtuple：命令元组，它是一个类工厂，接受类型的名称和属性列表来创建一个类。
+deque：双端队列，是列表的替代实现。Python中的列表底层是基于数组来实现的，而deque底层是双向链表，因此当你需要在头尾添加和删除元素是，deque会表现出更好的性能，渐近时间复杂度为$O(1)$。
+Counter：dict的子类，键是元素，值是元素的计数，它的most_common()方法可以帮助我们获取出现频率最高的元素。Counter和dict的继承关系我认为是值得商榷的，按照CARP原则，Counter跟dict的关系应该设计为关联关系更为合理。
+OrderedDict：dict的子类，它记录了键值对插入的顺序，看起来既有字典的行为，也有链表的行为。
+defaultdict：类似于字典类型，但是可以通过默认的工厂函数来获得键对应的默认值，相比字典中的setdefault()方法，这种做法更加高效。
+"""
+找出序列中出现次数最多的元素
+"""
+from collections import Counter
+
+words = [
+    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+    'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+    'look', 'into', 'my', 'eyes', "you're", 'under'
+]
+counter = Counter(words)
+print(counter.most_common(3))  重复最多的前三个
+
+
+3.1 语句
+with open('pi_digits.txt') as file_object:
+try-except
+    try:
+    except:
+4、索引
+索引从0开始
+
+5、导入函数
+import pz (文件名)
+from pz(文件名) import make_pizza (函数名，多个用逗号隔开)
+as 起别名  
+ from pz import make_pizza as aa
+ import pz as p
+   p.make_pizza(12,'asd')
+from pz import * (导入所有函数)
+
+6、循环
+判断  不包含： if user not in alist:
+if 某:
+    某某
+elif 某:
+    某某
+else:
+    某某
+
+缩进4格
+
+pass 跳过代码块
+    例：>>> a = 3
+    >>> if a<1:
+    ...     print("a<1")
+    ... else:
+    ...     pass
+    ...
+    >>> #程序没有报错
+for循环
+例：namelist = ['Sophia','Emma','Olivia','Ava','Mia','Isabella','Zoe','Lily','Emily','Madison','Jackson','Aiden','Liam','Lucas','Noah','Mason','Ethan','Caden','Logan','Jacob']
+##点名册
+for i in namelist:
+    print(i)
+range() 函数 #range(a,b) 包头不包尾，尾数要 + 1 
+例：for a in range(1,11):
+    print(a)    #打印1-10数字
+break 退出循环
+例：
+for a in range(10):   
+    if a == 5:
+        break
+    print(a)
+continue 跳过当前循环
+例：a = 0
+while a < 10:
+    a = a + 1
+    if a == 5:
+        continue
+    print(a)
+
+
+7、运算
+	运算符	名称	描述
+	+	加	两个对象相加
+	-	减	得到负数或是一个数减去另一个数
+	*	乘	两个数相乘或是返回一个被重复若干次的字符串
+	/	除	x 除以 y
+	%	取模	返回除法的余数
+	**	幂	返回 x 的 y 次幂
+	//	取整除	返回商的整数部分（向下取整）
+	
+	运算符	描述
+	==	等于：比较对象是否相等
+	!=	不等于：比较两个对象是否不相等
+	>	大于：返回 x 是否大于 y
+	<	小于：返回 x 是否小于 y
+	>=	大于等于：返回 x 是否大于等于 y
+	<=	小于等于：返回 x 是否小于等于 y
+	
+	运算符	描述	实例
+	=	赋值运算符	c = a + b ：将 a + b 的运算结果赋值为 c
+	+=	加法赋值运算符	c += a ：等效于 c = c + a
+	-=	减法赋值运算符	c -= a ：等效于 c = c - a
+	*=	乘法赋值运算符	c *= a ：等效于 c = c * a
+	/=	除法赋值运算符	c /= a ：等效于 c = c / a
+	%=	取模赋值运算符	c %= a ：等效于 c = c % a
+	**=	幂赋值运算符	c **= a ：等效于 c = c ** a
+	//=	取整除赋值运算符	c //= a ：等效于 c = c // a
+	
+	运算符	逻辑表达式	结果
+	and（逻辑与）	a and b	当 a、b 都为 True 时，返回 True；否则返回 False
+	or（逻辑或）	a or b	当 a、b 任意一个为 True，就返回 True
+	not（逻辑非）	not a	当 a 为 True 时，返回 False；反之亦然
+
+7、列表解析
+>>> sq = [i**2 for i in range(1,11)]
+>>> print(sq)
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+>>> sq = [i for i in range(1,11)]
+>>> print(sq)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+切片
+alist = ['aa','bb','cc','dd','ee','ff']
+print(alist)    ['aa', 'bb', 'cc', 'dd', 'ee', 'ff']
+print(alist[0:3])   ['aa', 'bb', 'cc']
+print(alist[:3])    ['aa', 'bb', 'cc']  （同样是包头不包尾）
+print(alist[3:])   ['dd', 'ee', 'ff']
+print(alist[-2:])   ['ee', 'ff']
+复制列表
+blist = alist[:]
+
+[]普通列表，可修改
+()元组 
+{}字典，是一系列的键值对 
+alien = {'color','red'} print(alien['color']) 
+添加 alien['zuo'] = 10 alien['you'] = 'you2'  
+创建空字典 alien = {} 
+修改 alien['you2'] = 'you2222'  
+删除 del alien['you2'] 
+
+二 类
+类中的函数称为方法
+类中的变量称为属性
+--init--()
+
+Python标准库
+OrderedDict()兼具列表和字典的主要优点（在将信息关联起来的同时保留原来的顺序）
+
+附表1:
+unittest Module 中的断言方法
+	方法 										用途
+assertEqual(a, b) 						核实a == b
+assertNotEqual(a, b) 					核实a != b
+assertTrue(x) 							核实x 为True
+assertFalse(x) 							核实x 为False
+assertIn(item , list ) 					核实 item 在 list 中
+assertNotIn(item , list )				核实 item 不在 list 中

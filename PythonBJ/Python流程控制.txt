@@ -1,0 +1,39 @@
+判断
+if 某:
+    某某
+elif 某:
+    某某
+else:
+    某某
+
+缩进4格
+
+pass 跳过代码块
+    例：>>> a = 3
+    >>> if a<1:
+    ...     print("a<1")
+    ... else:
+    ...     pass
+    ...
+    >>> #程序没有报错
+for循环
+例：namelist = ['Sophia','Emma','Olivia','Ava','Mia','Isabella','Zoe','Lily','Emily','Madison','Jackson','Aiden','Liam','Lucas','Noah','Mason','Ethan','Caden','Logan','Jacob']
+##点名册
+for i in namelist:
+    print(i)
+range() 函数 #range(a,b) 包头不包尾，尾数要 + 1 
+例：for a in range(1,11):
+    print(a)    #打印1-10数字
+break 退出循环
+例：
+for a in range(10):
+    if a == 5:
+        break
+    print(a)
+continue 跳过当前循环
+例：a = 0
+while a < 10:
+    a = a + 1
+    if a == 5:
+        continue
+    print(a)
