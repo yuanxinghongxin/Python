@@ -3,7 +3,7 @@
 十位：sum//10%10
 百位：sum//100%10 
 ...... 
-一、函数
+一、函数方法
 Python 将非空字符串解读为 True
 1.设置函数
 def make_pizza(*toppings): 形参名 *toppings 中的星号让 Python 创建一个名为 toppings 的空元组，并将收到的所有值都封装到这个元组中
@@ -264,8 +264,11 @@ alien = {'color','red'} print(alien['color'])
 类中的变量称为属性
 --init--()
 
-Python标准库
+三、Python标准库
 OrderedDict()兼具列表和字典的主要优点（在将信息关联起来的同时保留原来的顺序）
+random
+    random.sample(a,k=2)从列表a里随机选出两变量
+    random.randint(100,999)返回的随机数N符合，100<N<999
 
 附表1:
 unittest Module 中的断言方法
@@ -276,3 +279,42 @@ assertTrue(x) 							核实x 为True
 assertFalse(x) 							核实x 为False
 assertIn(item , list ) 					核实 item 在 list 中
 assertNotIn(item , list )				核实 item 不在 list 中
+
+
+
+
+Python比较运算符
+表 达 式 描 述
+x == y		x 等于 y
+x < y		x 小于 y
+x > y		x 大于 y
+x >= y		x 大于或等于 y
+x <= y		x 小于或等于 y
+x != y		x 不等于 y
+x is y		x 和 y 是同一个对象
+x is not y	x 和 y 是不同的对象
+x in y		x 是容器（如序列） y 的成员
+x not in y	x 不是容器（如序列） y 的成员
+
+
+Python一些内置的异常类
+Exception
+	几乎所有的异常类都是从它派生而来的
+AttributeError
+	引用属性或给它赋值失败时引发
+OSError
+	操作系统不能执行指定的任务（如打开文件）时引发，有多个子类
+IndexError
+	使用序列中不存在的索引时引发，为 LookupError 的子类
+KeyError
+	使用映射中不存在的键时引发，为 LookupError 的子类
+NameError
+	找不到名称（变量）时引发
+SyntaxError
+	代码不正确时引发
+TypeError
+	将内置操作或函数用于类型不正确的对象时引发
+ValueError
+	将内置操作或函数用于这样的对象时引发：其类型正确但包含的值不合适
+ZeroDivisionError
+	在除法或求模运算的第二个参数为零时引发
